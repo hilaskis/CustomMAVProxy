@@ -28,7 +28,7 @@ class SerialModule(mp_module.MPModule):
             data = m.data[:m.count]
             s = ''.join(str(chr(x)) for x in data)
             sys.stdout.write(s)
-        else
+        else:
             data = m.data[:m.count]
             s = ''.join(str(chr(x)) for x in data)
             sys.stdout.write(s)
