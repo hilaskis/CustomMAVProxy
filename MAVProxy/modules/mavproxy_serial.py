@@ -29,9 +29,7 @@ class SerialModule(mp_module.MPModule):
             s = ''.join(str(chr(x)) for x in data)
             sys.stdout.write(s)
         else:
-            data = m.data[:m.count]
-            s = ''.join(str(chr(x)) for x in data)
-            sys.stdout.write(s)
+            mpstate.console.writeln("This is a test")
 
     def serial_lock(self, lock):
         '''lock or unlock the port'''
