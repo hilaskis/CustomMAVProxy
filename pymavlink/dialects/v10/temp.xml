@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<mavlink>
+        <include>ardupilotmega.xml</include>
+        <!-- NOTE: If the included file already contains a version tag, remove the version tag here, else uncomment to enable. -->
+	<!--<version>3</version>-->
+	<enums>
+	</enums>
+	<messages>
+        <message name="TUNED_FREQUENCY" id="187">
+            <description>Control the tuned frequency of an SDR</description>
+            <field type="float" name="tuned_freq">Tuned Frequency</field>
+        </message>
+
+        <message name="PHASE_OFFSET" id="188">
+          <description>The phase offset of a signal received by an SDR</description>
+          <field type="uint16_t" name="phase_offset">Phase Offset</field>
+        </message>
+	</messages>
+</mavlink>
