@@ -37,7 +37,7 @@ if __name__ == '__main__':
 class MPStatus(object):
     '''hold status information about the mavproxy'''
     def __init__(self):
-        self.gps	 = Nonedd
+        self.gps	 = None
         self.msgs = {}
         self.msg_count = {}
         self.counters = {'MasterIn' : [], 'MasterOut' : 0, 'FGearIn' : 0, 'FGearOut' : 0, 'Slave' : 0}
@@ -408,6 +408,7 @@ command_map = {
 
 def process_stdin(line):
     '''handle commands from user'''
+    print("Test")
     if line is None:
         sys.exit(0)
     line = line.strip()
@@ -475,6 +476,7 @@ def process_master(m):
         return
     # prevent a dead serial port from causing the CPU to spin. The user hitting enter will
     # cause it to try and reconnect
+##########################################print("process master: %s" % str(len(s)))
     if len(s) == 0:
         time.sleep(0.1)
         return
@@ -492,6 +494,7 @@ def process_master(m):
 
     if m.first_byte and opts.auto_protocol:
         m.auto_mavlink_version(s)
+
     msgs = m.mav.parse_buffer(s)
     if msgs:
         for msg in msgs:
