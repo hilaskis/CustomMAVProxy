@@ -674,9 +674,7 @@ def main_loop():
     '''main processing loop'''
     if not mpstate.status.setup_mode and not opts.nowait:
         for master in mpstate.mav_master:
-            print("Sending pi_packet")
             send_heartbeat(master)
-            master.mav.pi_packet_send(30, 180, 0)
             if master.linknum == 0:
                 master.wait_heartbeat()
         set_stream_rates()
@@ -694,6 +692,8 @@ def main_loop():
                 process_stdin(c)
 
         for master in mpstate.mav_master:
+            print("Sending pi_packet")
+            master.mav.pi_packet_send(30, 180, 0)
             if master.fd is None:
                 if master.port.inWaiting() > 0:
                     process_master(master)
