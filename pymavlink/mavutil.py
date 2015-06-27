@@ -229,7 +229,7 @@ class mavfile(object):
         msg._posted = True
         msg._timestamp = time.time()
         type = msg.get_type()
-        if(type == 'TUNED_FREQUENCY')
+        if(type == 'TUNED_FREQUENCY'):
             print("Got message type: %s" % type)
         if type != 'HEARTBEAT' or (msg.type != mavlink.MAV_TYPE_GCS and msg.type != mavlink.MAV_TYPE_GIMBAL):
             self.messages[type] = msg
