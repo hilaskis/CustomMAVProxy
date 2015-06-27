@@ -674,6 +674,7 @@ def main_loop():
     '''main processing loop'''
     if not mpstate.status.setup_mode and not opts.nowait:
         for master in mpstate.mav_master:
+            print("Sending pi_packet")
             send_heartbeat(master)
             master.mav.pi_packet_send(30, 180, 0)
             if master.linknum == 0:
